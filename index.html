@@ -597,35 +597,91 @@
         }
 
         @media (max-width: 768px) {
+            /* Header Mobile Otimizado */
+            header {
+                padding: 15px 0;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .header-buttons {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+            }
+            
+            .btn-whatsapp,
+            .btn-instagram {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 20px;
+                font-size: 15px;
+            }
+            
+            .btn-whatsapp span {
+                display: inline;
+            }
+            
+            .logo-text {
+                display: none;
+            }
+            
+            .logo img {
+                height: 60px;
+            }
+            
+            /* Hero Mobile */
+            .hero {
+                padding: 140px 0 60px;
+            }
+            
             .hero h1 {
                 font-size: 36px;
             }
+            
             .hero-stats {
                 flex-direction: column;
                 gap: 30px;
             }
+            
+            /* Kits Mobile - Preços Alinhados */
             .kits-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .kit-price {
+                font-size: 16pt;
+            }
+            
+            .kit-economia {
+                font-size: 10px;
+                padding: 5px 10px;
+                white-space: nowrap;
+            }
+            
+            .kit-pricing {
+                padding: 15px;
+            }
+            
+            /* Peças Mobile */
             .pecas-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            /* CTA e Footer Mobile */
             .cta-features {
                 flex-direction: column;
                 gap: 20px;
             }
+            
             .footer-content {
                 flex-direction: column;
                 gap: 40px;
-            }
-            .btn-whatsapp span {
-                display: none;
-            }
-            .logo-text {
-                display: none;
-            }
-            .logo img {
-                height: 70px;
             }
         }
 
