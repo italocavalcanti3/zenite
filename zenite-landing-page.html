@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zênite Peças para Elevadores | Kits Manutenção Fermator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --verde: #00B894;
+            --azul: #0984E3;
+            --roxo: #6C5CE7;
+            --dourado: #D4AF37;
+            --dourado-light: #F4D03F;
+            --whatsapp: #25D366;
+            --dark: #0A0A0A;
+            --dark-light: #1A1A2E;
+            --gray: #2D2D2D;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-size: 22px;
+            font-weight: 800;
+            color: #D4AF37;
+            letter-spacing: 3px;
+        }
+
+        .logo-subtitle {
+            color: rgba(255,255,255,0.6);
+            font-weight: 400;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            background: var(--dourado);
+            opacity: 0.08;
+            border-radius: 50%;
+            filter: blur(100px);
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--dourado);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--dourado) 0%, var(--dourado-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--dourado);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 5px;
+        }
+
+        /* Kits Section */
+        .kits-section {
+            padding: 100px 0;
+            background: var(--dark);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 18px;
+        }
+
+        .kits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .kit-card {
+            background: linear-gradient(180deg, var(--dark-light) 0%, rgba(26, 26, 46, 0.5) 100%);
+            border-radius: 20px;
+            padding: 35px;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .kit-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--kit-color);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .kit-card.basico { --kit-color: var(--verde); }
+        .kit-card.completo { --kit-color: var(--azul); }
+        .kit-card.reforma { --kit-color: var(--roxo); }
+
+        .kit-badge {
+            position: absolute;
+            top: -12px;
+            right: 25px;
+            background: var(--kit-color);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .kit-header {
+            margin-bottom: 25px;
+        }
+
+        .kit-name {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .kit-subtitle {
+            color: var(--kit-color);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .kit-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+            min-height: 90px;
+        }
+
+        .kit-images img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .kit-images img:hover {
+            transform: scale(1.1);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .kit-items {
+            margin-bottom: 30px;
+        }
+
+        .kit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .kit-item:last-child {
+            border-bottom: none;
+        }
+
+        .kit-item-check {
+            color: var(--kit-color);
+            font-size: 16px;
+        }
+
+        .kit-item-text {
+            color: rgba(255,255,255,0.85);
+            font-size: 14px;
+        }
+
+        .kit-pricing {
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .kit-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .kit-price {
+            font-size: 36px;
+            font-weight: 800;
+        }
+
+        .kit-economia {
+            background: rgba(0, 184, 148, 0.15);
+            color: var(--verde);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .kit-btn {
+            display: block;
+            background: var(--kit-color);
+            color: #fff;
+            text-align: center;
+            padding: 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .kit-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Peças Individuais */
+        .pecas-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--dark-light) 0%, var(--dark) 100%);
+        }
+
+        .pecas-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .peca-card {
+            background: var(--gray);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .peca-card:hover {
+            border-color: var(--verde);
+            transform: translateY(-5px);
+        }
+
+        .peca-img {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter: brightness(1.1);
+        }
+
+        .peca-name {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .peca-sku {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 15px;
+        }
+
+        .peca-price {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--verde);
+        }
+
+        .peca-price-old {
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+            text-decoration: line-through;
+            margin-bottom: 5px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #075E54 0%, #128C7E 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .cta-content {
+            position: relative;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #fff;
+            color: #075E54;
+            padding: 20px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .cta-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .cta-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dourado);
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4);
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .kits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .pecas-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .kits-grid {
+                grid-template-columns: 1fr;
+            }
+            .pecas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .cta-features {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .btn-whatsapp span {
+                display: none;
+            }
+            .logo-text {
+                display: none;
+            }
+            .logo img {
+                height: 35px;
+            }
+        }
+
+        /* Animações */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .kit-card.destaque {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="Logo_Zenite_transparente.png" alt="Zênite">
+                    <div class="logo-text">
+                        <span class="logo-name">ZÊNITE</span>
+                        <span class="logo-subtitle">Peças para Elevadores</span>
+                    </div>
+                </div>
+                <a href="https://wa.me/5511999999999?text=Olá!%20Vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20os%20kits%20Fermator" class="btn-whatsapp" target="_blank">
+                    📲 <span>Fale Conosco</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">✦ Componentes Fermator Originais</div>
+                <h1>Kits Manutenção<br><span>Preventiva Fermator</span></h1>
+                <p>Peças de alta qualidade para portas de elevador. Economia de até R$ 120 comprando em kit. Entrega rápida para toda Grande São Paulo.</p>
+                <a href="#kits" class="btn-whatsapp" style="display: inline-flex;">
+                    Ver Kits Disponíveis →
+                </a>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">60%</div>
+                        <div class="stat-label">dos chamados são<br>problemas de porta</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24h</div>
+                        <div class="stat-label">prazo de envio<br>para Grande SP</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">R$120</div>
+                        <div class="stat-label">economia máxima<br>comprando em kit</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kits Section -->
+    <section class="kits-section" id="kits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Escolha seu Kit</h2>
+                <p>Montamos kits com as peças que mais saem na manutenção de portas Fermator</p>
+            </div>
+
+            <div class="kits-grid">
+                <!-- Kit Básico -->
+                <div class="kit-card basico">
+                    <div class="kit-badge">MAIS VENDIDO</div>
+                    <div class="kit-header">
+                        <div class="kit-name">Kit Básico</div>
+                        <div class="kit-subtitle">Giro Rápido</div>
+                    </div>
+                    <div class="kit-images">
+                        <img src="Pec_a_contato_ele_trico_v3.png" alt="Contato Elétrico" title="Contato Elétrico">
+                        <img src="Pec_a_deslizante_de_porta.png" alt="Corrediça de Soleira" title="Corrediça de Soleira">
+                        <img src="Pec_a_roldana.png" alt="Roldana" title="Roldana">
+                    </div>
+                    <div class="kit-items">
+                        <div class="kit-item">
+                            <span class="kit-item-check">✓</span>
+                            <span class="kit-item-text">1x Contato Elétrico 220V</span>
+                        </div>
+                        <div class="kit-item">
+                            <span class="kit-item-check">✓</span>
+                            <span class="kit-item-text">2x Corrediça de Soleira c/ Pino</span>
+                        </div>
+                        <div class="kit-item">
+                            <span class="kit-item-check">✓</span>
+                            <span class="kit-item-text">2x Roldana 30mm</span>
+                        </div>
+                    </div>
+                    <div class="kit-pricing">
+                        <div class="kit-price-row">
+                            <div class="kit-price">R$ 149,90</div>
+                            <div class="kit-economia">Economia R$ 45</div>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20o%20*Kit%20Básico*%20Fermator%20por%20R$149,90" class="kit-btn" target="_blank">
+                        Pedir via WhatsApp
+                    </a>
+                </div>
+
+                <!-- Kit Completo -->
+                <div class="kit-card completo destaque">
+                    <div class="kit-badge">RECOMENDADO</div>
+                    <div class="kit-header">
+                        <div class="kit-name">Kit Completo</div>
+                        <div class="kit-subtitle">Porta Total</div>
+                    </div>
+                    <div class="kit-images">
+                        <img src="Pec_a_contato_ele_trico_v3.png" alt="Contato Elétrico" title="Contato Elétrico">
+                        <img src="Pec_a_deslizante_de_porta.png" alt="Corrediça" title="Corrediça">
+                        <img src="Pec_a_roldana.png" alt="Roldana" title="Roldana">
+                        <img src="Pec_a_mola.png" alt="Mola" title="Mola">
+                        <img src="Pec_a_conector_de_correia_dentada.png" alt="Conector Correia" title="Conector Correia">
+                    </div>
+                    <div class="kit-items">
+                        <div class="kit-item">
+                            <span class="kit-item-check">✓</span>
+                            <span class="kit-item-text">1x Contato Elétrico 220V</span>
+                        </div>
+                        <div class="kit-item">
+                            <span class="kit-item-check">✓</span>
+                            <span class="kit-item-text">2x Corrediça de Soleira c/ Pino</span>
+                        </div>
+                        <div class="kit-item">
+                            <span class="kit-item-check">✓</span>
+                            <span class="kit-item-text">2x Roldana 30mm</span>
+                        </div>
+                        <div class="kit-item">
+                            <span class="kit-item-check">✓</span>
+                            <span class="kit-item-text">1x Mola p/ Porta Pavimento</span>
+                        </div>
+                        <div class="kit-item">
+                            <span class="kit-item-check">✓</span>
+                            <span class="kit-item-text">1x Conector de Correia</span>
+                        </div>
+                    </div>
+                    <div class="kit-pricing">
+                        <div class="kit-price-row">
+                            <div class="kit-price">R$ 259,90</div>
+                            <div class="kit-economia">Economia R$ 75</div>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20o%20*Kit%20Completo*%20Fermator%20por%20R$259,90" class="kit-btn" target="_blank">
+                        Pedir via WhatsApp
+                    </a>
+                </div>
+
+                <!-- Kit Reforma -->
+                <div class="kit-card reforma">
+                    <div class="kit-badge">COMPLETO</div>
+                    <div class="kit-header">
+                        <div class="kit-name">Kit Reforma</div>
+                        <div class="kit-subtitle">Porta Nova</div>
+                    </div>
+                    <div class="kit-images">
+                        <img src="Pec_a_guia_de_porta.png" alt="Dispositivo Arraste" title="Dispositivo Arraste">
+                        <img src="Pec_a_contato_ele_trico_v3.png" alt="Contato Elétrico" title="Contato Elétrico">
+                        <img src="Pec_a_deslizante_de_porta.png" alt="Corrediça" title="Corrediça">
+                        <img src="Pec_a_roldana.png" alt="Roldana" title="Roldana">
+                        <img src="Pec_a_mola.png" alt="Mola" title="Mola">
+                    </div>
+                    <div class="kit-items">
+                        <div class="kit-item">
+                            <span class="kit-item-check">✓</span>
+                            <span class="kit-item-text">1x Dispositivo de Arraste</span>
+                        </div>
+                        <div class="kit-item">
+                            <span class="kit-item-check">✓</span>
+                            <span class="kit-item-text">1x Contato Elétrico 220V</span>
+                        </div>
+                        <div class="kit-item">
+                            <span class="kit-item-check">✓</span>
+                            <span class="kit-item-text">2x Corrediça de Soleira</span>
+                        </div>
+                        <div class="kit-item">
+                            <span class="kit-item-check">✓</span>
+                            <span class="kit-item-text">4x Roldana 30mm</span>
+                        </div>
+                        <div class="kit-item">
+                            <span class="kit-item-check">✓</span>
+                            <span class="kit-item-text">1x Mola p/ Porta Pavimento</span>
+                        </div>
+                        <div class="kit-item">
+                            <span class="kit-item-check">✓</span>
+                            <span class="kit-item-text">1x Polia do Cabo</span>
+                        </div>
+                        <div class="kit-item">
+                            <span class="kit-item-check">✓</span>
+                            <span class="kit-item-text">2x Conector de Correia</span>
+                        </div>
+                    </div>
+                    <div class="kit-pricing">
+                        <div class="kit-price-row">
+                            <div class="kit-price">R$ 399,90</div>
+                            <div class="kit-economia">Economia R$ 120</div>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20o%20*Kit%20Reforma*%20Fermator%20por%20R$399,90" class="kit-btn" target="_blank">
+                        Pedir via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Peças Individuais -->
+    <section class="pecas-section" id="pecas">
+        <div class="container">
+            <div class="section-header">
+                <h2>Peças Avulsas</h2>
+                <p>Também vendemos peças individuais. Confira nosso catálogo completo.</p>
+            </div>
+
+            <div class="pecas-grid">
+                <div class="peca-card">
+                    <img src="Pec_a_contato_ele_trico_v3.png" alt="Contato Elétrico" class="peca-img">
+                    <div class="peca-name">Contato Elétrico 220V</div>
+                    <div class="peca-sku">CTT-ELET-220</div>
+                    <div class="peca-price-old">Fermator: R$ 70,00</div>
+                    <div class="peca-price">R$ 55,00</div>
+                </div>
+
+                <div class="peca-card">
+                    <img src="Pec_a_deslizante_de_porta.png" alt="Corrediça de Soleira" class="peca-img">
+                    <div class="peca-name">Corrediça de Soleira c/ Pino</div>
+                    <div class="peca-sku">CORR-SOLEIRA-PINO</div>
+                    <div class="peca-price-old">Fermator: R$ 50,00</div>
+                    <div class="peca-price">R$ 30,00</div>
+                </div>
+
+                <div class="peca-card">
+                    <img src="Pec_a_roldana.png" alt="Roldana" class="peca-img">
+                    <div class="peca-name">Roldana 30mm p/ Disp. Arraste</div>
+                    <div class="peca-sku">ROLD-30-DISP-ARR</div>
+                    <div class="peca-price-old">Fermator: R$ 30,00</div>
+                    <div class="peca-price">R$ 20,00</div>
+                </div>
+
+                <div class="peca-card">
+                    <img src="Pec_a_mola.png" alt="Mola para Porta" class="peca-img">
+                    <div class="peca-name">Mola p/ Porta Pavimento</div>
+                    <div class="peca-sku">MOLA-PORTA-PAV</div>
+                    <div class="peca-price-old">Fermator: R$ 120,00</div>
+                    <div class="peca-price">R$ 90,00</div>
+                </div>
+
+                <div class="peca-card">
+                    <img src="Pec_a_conector_de_correia_dentada.png" alt="Conector Correia" class="peca-img">
+                    <div class="peca-name">Conector/Emenda da Correia</div>
+                    <div class="peca-sku">CONECTOR-CORR</div>
+                    <div class="peca-price-old">Fermator: R$ 25,00</div>
+                    <div class="peca-price">R$ 25,00</div>
+                </div>
+
+                <div class="peca-card">
+                    <img src="Pec_a_guia_de_porta.png" alt="Dispositivo de Arraste" class="peca-img">
+                    <div class="peca-name">Dispositivo de Arraste</div>
+                    <div class="peca-sku">DISP-ARR-DIR/ESQ</div>
+                    <div class="peca-price-old">Fermator: R$ 80,00</div>
+                    <div class="peca-price">R$ 80,00</div>
+                </div>
+
+                <div class="peca-card">
+                    <img src="Pec_a_Engate_do_trinco_com_contato_ele_trico.png" alt="Engate do Trinco" class="peca-img">
+                    <div class="peca-name">Engate do Trinco c/ Contato Elét.</div>
+                    <div class="peca-sku">ENG-TRINCO-CTT-ELET</div>
+                    <div class="peca-price-old">Fermator: R$ 300,00</div>
+                    <div class="peca-price">R$ 220,00</div>
+                </div>
+
+                <div class="peca-card">
+                    <img src="Pec_a_soleira_alumi_nio.png" alt="Soleira Alumínio" class="peca-img">
+                    <div class="peca-name">Soleira 40/10pm 1240mm</div>
+                    <div class="peca-sku">SOLEIRA-4010-1240-800</div>
+                    <div class="peca-price-old">Fermator: R$ 380,00</div>
+                    <div class="peca-price">R$ 330,00</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Pronto para fazer seu pedido?</h2>
+                <p>Chama no WhatsApp e garanta as melhores peças Fermator pelo melhor preço!</p>
+                <a href="https://wa.me/5511999999999?text=Olá!%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido" class="cta-btn" target="_blank">
+                    📲 Chamar no WhatsApp
+                </a>
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <span>✓</span> Entrega em 24h para Grande SP
+                    </div>
+                    <div class="cta-feature">
+                        <span>✓</span> Parcelamento no cartão
+                    </div>
+                    <div class="cta-feature">
+                        <span>✓</span> Nota Fiscal
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <img src="Logo_Zenite_transparente.png" alt="Zênite" style="height: 40px;">
+                        <div class="logo-text">
+                            <span class="logo-name">ZÊNITE</span>
+                            <span class="logo-subtitle">Peças para Elevadores</span>
+                        </div>
+                    </div>
+                    <p>Distribuidor de componentes Fermator para portas de elevador. Atendemos empresas de manutenção em toda Grande São Paulo.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>KITS</h4>
+                    <a href="#kits">Kit Básico - R$ 149,90</a>
+                    <a href="#kits">Kit Completo - R$ 259,90</a>
+                    <a href="#kits">Kit Reforma - R$ 399,90</a>
+                </div>
+                <div class="footer-links">
+                    <h4>CONTATO</h4>
+                    <a href="https://wa.me/5511999999999" target="_blank">📲 WhatsApp</a>
+                    <a href="mailto:contato@zenitepeças.com.br">📧 E-mail</a>
+                    <a href="#">📍 São Bernardo do Campo, SP</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2025 Zênite Peças para Elevadores. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                header.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
